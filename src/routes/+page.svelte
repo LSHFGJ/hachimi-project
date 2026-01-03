@@ -122,6 +122,8 @@
     let showIntro = true;
     let showOutro = false;
     let introStartPage = 0;
+    let readerCount = 1; // Will be updated from Vercel KV
+    let hasCountedVisit = false; // Prevent double counting
 
     // Check localStorage on mount to skip intro if already seen
     function checkIntroSeen() {
@@ -189,6 +191,16 @@
     // Auto-show outro when reaching outro step
     $: if (currentViz === "outro" && !showOutro) {
         showOutro = true;
+        // Increment visitor count when entering outro for the first time
+        if (!hasCountedVisit) {
+            hasCountedVisit = true;
+            fetch("/api/visitor-count", { method: "POST" })
+                .then((res) => res.json())
+                .then((data) => {
+                    if (data.count) readerCount = data.count;
+                })
+                .catch(console.error);
+        }
     }
 
     function handleOutroPrev() {
@@ -386,6 +398,7 @@
     {#if showOutro}
         <TypewriterOutro
             texts={outroParagraphs}
+            {readerCount}
             on:complete={() => (showOutro = false)}
             on:prev={handleOutroPrev}
         />
