@@ -82,7 +82,7 @@
                 id: 5,
                 title: "哈基米音乐的泛化也带来了语言的解放。",
                 paragraphs: [
-                    "人们开始用<b>哈基</b>开头来组装各种拼好词：<br>男人叫<b>哈基帅</b>，<br>女人叫<b>哈基美</b>，<br>大狗叫<b>哈基汪</b>，<br>聪明通人性的猫咪叫<b>哈基米德</b>。<br>当你觉得某个创意已经是登峰造极、可以称得上<br><b>基米本天成，哈谢偶得之</b><br>的时候，<br>你再看看你后面，<br>就会发现这种<b>家里需要请哈基先</b>的天才，<br>在这个时代还有无数个。",
+                    "人们开始用<b>哈基</b>开头来组装各种拼好词：<br>男人叫<b>哈基帅</b>，<br>女人叫<b>哈基美</b>，<br>大狗叫<b>哈基汪</b>，<br>聪明通人性的猫咪叫<b>哈基米德</b>。<br>当你觉得某个创意已经是登峰造极、可以称得上<br><b>基米本天成，哈谢偶得之</b><br>的时候，<br>你再看看你后面，<br>就会发现这种<b>家里需要请哈基高</b>的天才，<br>在这个时代还有无数个。",
                 ],
             },
         ],
@@ -465,6 +465,12 @@
             </a>
         </div>
 
+        <!-- Scroll Hint -->
+        <div class="scroll-hint animate-fade-in" style="--delay: 0.6s">
+            <span class="scroll-text">继续阅读</span>
+            <span class="scroll-arrow">↓</span>
+        </div>
+
         <!-- Character images on cover -->
         <div class="cover-characters">
             <img
@@ -707,16 +713,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Footer -->
-    <footer class="site-footer">
-        <div class="footer-content">
-            <p class="footer-source">
-                数据来源：B站公开数据 | 设计灵感：The Pudding
-            </p>
-            <p class="footer-credits">Built with SvelteKit + D3 + LayerCake</p>
-        </div>
-    </footer>
 </main>
 
 <style>
@@ -1010,6 +1006,61 @@
         height: 60px;
         background: linear-gradient(to bottom, #d42f2f, transparent);
         animation: pulse 2s ease-in-out infinite;
+    }
+
+    /* Scroll Hint */
+    .scroll-hint {
+        position: absolute;
+        bottom: 10%;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        z-index: 10;
+        opacity: 0;
+        animation: fadeIn 0.6s ease-out forwards;
+        animation-delay: var(--delay, 0s);
+    }
+
+    .scroll-text {
+        font-family: "Source Han Serif CN", "Noto Serif SC", serif;
+        font-size: 0.9rem;
+        font-weight: 500;
+        color: #666;
+        letter-spacing: 0.15em;
+        animation: textPulse 2s ease-in-out infinite;
+    }
+
+    .scroll-arrow {
+        font-size: 1.5rem;
+        color: #c41e1e;
+        animation: arrowBounce 1.5s ease-in-out infinite;
+    }
+
+    @keyframes textPulse {
+        0%,
+        100% {
+            opacity: 0.6;
+        }
+        50% {
+            opacity: 1;
+        }
+    }
+
+    @keyframes arrowBounce {
+        0%,
+        100% {
+            transform: translateY(0);
+            opacity: 0.7;
+        }
+        50% {
+            transform: translateY(8px);
+            opacity: 1;
+        }
     }
 
     /* Cover page character images */
@@ -1566,7 +1617,7 @@
     }
 
     .model-left {
-        left: calc(5%);
+        left: calc(10%);
     }
 
     .overlay-wrapper {
@@ -1580,7 +1631,7 @@
 
     .chapter4-right-panel {
         position: absolute;
-        left: calc(70%);
+        left: calc(65%);
         top: 50%;
         transform: translateY(-50%);
         z-index: 2;

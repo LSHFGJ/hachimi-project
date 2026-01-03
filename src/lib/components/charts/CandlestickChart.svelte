@@ -243,7 +243,7 @@
 
         <!-- Floating price labels -->
         <text
-            x={width - 100}
+            x={width - 150}
             y={yScale(priceExtent[1])}
             fill="rgba(0,0,0,0.4)"
             font-size="11"
@@ -252,7 +252,7 @@
             ¥{priceExtent[1]?.toFixed(2)}
         </text>
         <text
-            x={width - 100}
+            x={width - 150}
             y={yScale(priceExtent[0])}
             fill="rgba(0,0,0,0.4)"
             font-size="11"

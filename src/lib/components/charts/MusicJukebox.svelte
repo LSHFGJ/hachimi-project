@@ -315,6 +315,14 @@
 <svelte:window on:keydown={handleKeydown} />
 
 <div class="jukebox-wrapper">
+    <!-- Play Hint Overlay -->
+    {#if isPlaying}
+        <div class="play-hint">
+            <span class="hint-icon">⏸</span>
+            <span class="hint-text">按空格暂停播放</span>
+        </div>
+    {/if}
+
     <div class="jukebox-content" class:single-mode={conclusionMode}>
         <!-- Left Album Gallery -->
 
@@ -1077,6 +1085,68 @@
         }
         50% {
             text-shadow: 0 0 10px rgba(255, 159, 159, 0.5);
+        }
+    }
+
+    /* Play Hint Overlay */
+    .play-hint {
+        position: fixed;
+        top: 15%;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 14px 28px;
+        background: linear-gradient(
+            135deg,
+            rgba(42, 37, 32, 0.95) 0%,
+            rgba(26, 21, 18, 0.95) 100%
+        );
+        border: 1px solid rgba(138, 122, 106, 0.3);
+        border-radius: 50px;
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.4),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        z-index: 2000;
+        animation: hintFadeIn 0.4s ease-out forwards;
+        backdrop-filter: blur(8px);
+    }
+
+    .hint-icon {
+        font-size: 1.2rem;
+        color: #ff9f9f;
+        animation: pulse-icon 1.5s ease-in-out infinite;
+    }
+
+    .hint-text {
+        font-family: var(--font-serif, "Source Han Serif CN", serif);
+        font-size: 1rem;
+        font-weight: 500;
+        color: #d4c4b0;
+        letter-spacing: 0.08em;
+    }
+
+    @keyframes hintFadeIn {
+        from {
+            opacity: 0;
+            transform: translateX(-50%) translateY(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+    }
+
+    @keyframes pulse-icon {
+        0%,
+        100% {
+            opacity: 0.7;
+            transform: scale(1);
+        }
+        50% {
+            opacity: 1;
+            transform: scale(1.1);
         }
     }
 </style>
