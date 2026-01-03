@@ -1,7 +1,9 @@
 <script>
     import coverMapping from "$lib/data/cover_mapping.json";
-    // import BilibiliLogo from "$lib/assets/Bilibili_logo.svg";
-    const BilibiliLogo = "/missing-asset.svg";
+    import blobMapping from "$lib/data/blob_mapping.json";
+
+    // Use Blob URL for Bilibili logo
+    const BilibiliLogo = blobMapping["Bilibili_logo.svg"];
 
     /** @type {number} */
     export let width = 800;
@@ -152,10 +154,11 @@
             };
             const category = categoryMap[categoryCode] || "other";
 
-            // Use API route with safe filename (no UTF-8 encoding issues)
+            // Use Blob URL via the safe filename mapping
             const safeFilename =
                 coverMapping?.[filename] || "cover_fallback.jpg";
-            const url = `/api/covers/${safeFilename}`;
+            const blobKey = `covers_safe/${safeFilename}`;
+            const url = blobMapping[blobKey] || `/api/covers/${safeFilename}`;
 
             // Fully deterministic values based on rank
             const detX = deterministicValue(rank, 1);

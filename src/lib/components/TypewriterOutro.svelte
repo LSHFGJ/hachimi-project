@@ -2,13 +2,12 @@
     import { onMount, createEventDispatcher } from "svelte";
     import { fade } from "svelte/transition";
 
-    // import collegeLogo from "$lib/assets/college_logo.png";
-    // import matikanetannhauser from "$lib/assets/Matikanetannhauser.png";
-    // import maoDie from "$lib/assets/MaoDie.png";
-
-    const collegeLogo = "/missing-asset.png";
-    const matikanetannhauser = "/missing-asset.png";
-    const maoDie = "/missing-asset.png";
+    const collegeLogo =
+        "https://hxc3aw3nnnycdgo6.public.blob.vercel-storage.com/college_logo.png";
+    const matikanetannhauser =
+        "https://hxc3aw3nnnycdgo6.public.blob.vercel-storage.com/Matikanetannhauser.png";
+    const maoDie =
+        "https://hxc3aw3nnnycdgo6.public.blob.vercel-storage.com/MaoDie.png";
 
     /** @type {string[]} */
     export let texts = [];

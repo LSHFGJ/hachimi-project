@@ -6,6 +6,7 @@
     import tracks from "$lib/data/tracks.json";
     import audioMatchData from "$lib/data/audio_match_final.json";
     import coverMatchData from "$lib/data/audio_cover_match.json";
+    import blobMapping from "$lib/data/blob_mapping.json";
 
     const dispatch = createEventDispatcher();
 
@@ -22,8 +23,12 @@
     const coverLookup = new Map();
     coverMatchData.forEach((monthGroup) => {
         monthGroup.tracks.forEach((track) => {
-            // Map date_id (YYYYMMDD) to absolute cover path
-            coverLookup.set(track.date_id, `/src/lib/assets/${track.cover}`);
+            // Map date_id (YYYYMMDD) to blob URL
+            const blobUrl = blobMapping[track.cover];
+            coverLookup.set(
+                track.date_id,
+                blobUrl || `/src/lib/assets/${track.cover}`,
+            );
         });
     });
 
@@ -166,8 +171,11 @@
             audioElement = null;
         }
 
-        // Construct audio path using lib/assets folder (served by Vite)
-        const audioPath = `/src/lib/assets/Bilibili_Top3_Downloads/${track.month}/${track.filename}`;
+        // Construct blob path
+        const relativeAudioPath = `Bilibili_Top3_Downloads/${track.month}/${track.filename}`;
+        const audioPath =
+            blobMapping[relativeAudioPath] ||
+            `/src/lib/assets/${relativeAudioPath}`;
         audioElement = new Audio(audioPath);
 
         audioElement.addEventListener("ended", () => {

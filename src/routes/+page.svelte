@@ -20,16 +20,15 @@
     import comments from "$lib/data/comments.json";
     import videos from "$lib/data/videos.json";
     import jiuyangStock from "$lib/data/jiuyang_stock.json";
-    // Asset imports replaced with placeholders for build
-    // import lifeWeekLogo from "$lib/assets/LifeWeek_logo.png";
-    // import matikanetannhauser from "$lib/assets/Matikanetannhauser.png";
-    // import maoDie from "$lib/assets/MaoDie.png";
-    // import soymilkModel from "$lib/assets/soymilk.glb";
 
-    const lifeWeekLogo = "/missing-asset.png";
-    const matikanetannhauser = "/missing-asset.png";
-    const maoDie = "/missing-asset.png";
-    const soymilkModel = "/missing-asset.glb";
+    const lifeWeekLogo =
+        "https://hxc3aw3nnnycdgo6.public.blob.vercel-storage.com/LifeWeek_logo.png";
+    const matikanetannhauser =
+        "https://hxc3aw3nnnycdgo6.public.blob.vercel-storage.com/Matikanetannhauser.png";
+    const maoDie =
+        "https://hxc3aw3nnnycdgo6.public.blob.vercel-storage.com/MaoDie.png";
+    const soymilkModel =
+        "https://hxc3aw3nnnycdgo6.public.blob.vercel-storage.com/soymilk.glb";
 
     const script = {
         title: "我们走遍了所有的哈基米视频",
