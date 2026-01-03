@@ -3,10 +3,25 @@
     import AlbumCoverGallery from "./AlbumCoverGallery.svelte";
     import DateGuessFader from "./DateGuessFader.svelte";
     import DualWaveform from "./DualWaveform.svelte";
+    import StyleReportPopup from "./StyleReportPopup.svelte";
     import tracks from "$lib/data/tracks.json";
     import audioMatchData from "$lib/data/audio_match_final.json";
     import coverMatchData from "$lib/data/audio_cover_match.json";
     import blobMapping from "$lib/data/blob_mapping.json";
+
+    // Build style report lookup from audioMatchData
+    // Maps month_id (e.g. "2024.11") to style_report object
+    const styleReportLookup = new Map();
+    audioMatchData.forEach((monthGroup) => {
+        if (monthGroup.style_report) {
+            // Convert month_id format: "2024.11" -> "24.11"
+            const monthId = monthGroup.month_id;
+            const shortMonth = monthId.replace(/^20/, "");
+            styleReportLookup.set(shortMonth, monthGroup.style_report);
+            // Also store with original format for fallback
+            styleReportLookup.set(monthId, monthGroup.style_report);
+        }
+    });
 
     const dispatch = createEventDispatcher();
 
@@ -49,6 +64,12 @@
     // Track IDs that have been revealed (guessed)
     let revealedTracks = new Set();
 
+    // Style report popup state
+    let showStylePopup = false;
+    /** @type {{title: string, keywords: string[], description: string} | null} */
+    let currentStyleReport = null;
+    let lastGuessCorrect = false;
+
     // Audio playback tracking for waveform
     let currentTime = 0;
     let audioDuration = 180;
@@ -88,6 +109,17 @@
         revealedTracks.add(selectedTrack.id);
         revealedTracks = revealedTracks; // Trigger reactivity
         console.log("[Jukebox] New revealed set:", revealedTracks);
+
+        // Show style report popup
+        const month = selectedTrack.month;
+        currentStyleReport = styleReportLookup.get(month) || null;
+        lastGuessCorrect = event.detail?.correct || false;
+        showStylePopup = true;
+    }
+
+    function handlePopupClose() {
+        showStylePopup = false;
+        currentStyleReport = null;
     }
 
     function handleLeave() {
@@ -718,6 +750,17 @@
         >
             {tooltipText}
         </div>
+    {/if}
+
+    <!-- Style Report Popup -->
+    {#if showStylePopup && selectedTrack}
+        <StyleReportPopup
+            trackTitle={selectedTrack.title}
+            month={selectedTrack.month}
+            styleReport={currentStyleReport}
+            isCorrect={lastGuessCorrect}
+            on:close={handlePopupClose}
+        />
     {/if}
 </div>
 
