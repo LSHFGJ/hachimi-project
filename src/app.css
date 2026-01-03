@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700;800&family=Noto+Sans+SC:wght@400;500;700;900&family=Playfair+Display:wght@400;500;600;700;800&family=Noto+Serif+SC:wght@400;500;600;700;900&display=swap');
+/* 思源宋体 - Source Han Serif CN for bold Song style */
+@import url('https://cdn.jsdelivr.net/npm/cn-fontsource-source-han-serif-cn-heavy@1.0.1/font.min.css');
+
+:root {
+  /* Color palette - The Pudding inspired */
+  --color-bg: #fafafa;
+  --color-bg-secondary: #f5f5f5;
+  --color-bg-card: #ffffff;
+  --color-bg-dark: #1a1a2e;
+  --color-text: #1a1a1a;
+  --color-text-secondary: #555555;
+  --color-text-muted: #888888;
+
+  /* Vibrant accent colors - functional */
+  --color-accent: #FF6B6B;
+  --color-accent-secondary: #4ECDC4;
+  --color-cat: #FF6B6B;
+  --color-horse: #4ECDC4;
+  --color-football: #45B7D1;
+  --color-commercial: #96CEB4;
+  --color-community: #DDA0DD;
+
+  /* Gradients */
+  --color-gradient-start: #FF6B6B;
+  --color-gradient-end: #4ECDC4;
+
+  /* Semantic colors */
+  --color-success: #2ecc71;
+  --color-warning: #f39c12;
+
+  /* Typography - The Pudding style */
+  --font-serif: 'Playfair Display', 'Noto Serif SC', Georgia, serif;
+  --font-display: 'Outfit', 'Noto Sans SC', system-ui, sans-serif;
+  --font-body: 'Inter', 'Noto Sans SC', system-ui, sans-serif;
+
+  /* Font sizes - more dramatic scale */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 2rem;
+  --font-size-4xl: 2.75rem;
+  --font-size-5xl: 3.5rem;
+  --font-size-6xl: 4.5rem;
+  --font-size-hero: clamp(2.5rem, 8vw, 5rem);
+
+  /* Spacing */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* Animations */
+  --transition-fast: 150ms ease;
+  --transition-normal: 300ms ease;
+  --transition-slow: 500ms ease;
+  --transition-slower: 800ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Layout */
+  --container-max: 1200px;
+  --text-max-width: 680px;
+  --step-max-width: 420px;
+
+  /* Step cards - floating style */
+  --step-bg: rgba(255, 255, 255, 0.97);
+  --step-border: rgba(0, 0, 0, 0.05);
+  --step-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --step-radius: 12px;
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Cat emoji cursor for default state */
+  cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><text y="24" font-size="24">🐱</text></svg>') 4 4, auto;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+/* Serif headers - The Pudding style */
+.serif-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent-secondary);
+}
+
+/* Accent text utility */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-gradient-start), var(--color-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.accent-text {
+  color: var(--color-accent);
+}
+
+/* Flat card - clean, minimal */
+.glass-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--step-border);
+  border-radius: var(--step-radius);
+  box-shadow: var(--step-shadow);
+}
+
+/* Floating text box - for annotations over visualizations */
+.floating-text {
+  background: var(--step-bg);
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--step-radius);
+  box-shadow: var(--step-shadow);
+  max-width: var(--step-max-width);
+}
+
+/* Chapter intro - dramatic opening style */
+.chapter-intro {
+  text-align: center;
+  padding: var(--space-16) var(--space-4);
+}
+
+.chapter-intro .chapter-number {
+  font-family: var(--font-serif);
+  font-size: var(--font-size-6xl);
+  font-weight: 700;
+  color: var(--color-accent);
+  opacity: 0.15;
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+
+.chapter-intro h2 {
+  font-family: var(--font-serif);
+  font-size: var(--font-size-3xl);
+  font-weight: 500;
+}
+
+/* Annotation style text */
+.annotation {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-muted);
+  font-style: italic;
+  padding: var(--space-2) var(--space-4);
+  border-left: 3px solid var(--color-accent);
+  background: rgba(255, 107, 107, 0.05);
+}
+
+/* Data callout */
+.data-callout {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--space-2);
+}
+
+.data-callout .number {
+  font-family: var(--font-display);
+  font-size: var(--font-size-4xl);
+  font-weight: 800;
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.data-callout .label {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+}
+
+/* Scrollytelling layout */
+.scrolly-container {
+  position: relative;
+}
+
+.scrolly-graphic {
+  position: fixed;
+  inset: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-bg);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.scrolly-graphic>* {
+  pointer-events: auto;
+}
+
+.scrolly-text {
+  position: relative;
+  z-index: 10;
+  max-width: var(--step-max-width);
+  margin: 0 auto;
+  padding: var(--space-4);
+  padding-top: 85vh;
+  padding-bottom: 50vh;
+}
+
+/* Step cards - The Pudding floating style */
+.step {
+  min-height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-6);
+  background: var(--step-bg);
+  border: 1px solid var(--step-border);
+  border-radius: var(--step-radius);
+  margin-bottom: 70vh;
+  box-shadow: var(--step-shadow);
+  opacity: 0.4;
+  transform: translateY(10px);
+  transition:
+    opacity var(--transition-slow),
+    transform var(--transition-slow);
+}
+
+.step.is-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.step p {
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+.step p:last-child {
+  margin-bottom: 0;
+}
+
+/* Button styles */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-6);
+  border-radius: 9999px;
+  font-weight: 600;
+  font-size: var(--font-size-sm);
+  transition: all var(--transition-fast);
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary {
+  background: var(--color-accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.25);
+}
+
+.btn-ghost {
+  background: transparent;
+  border: 2px solid var(--color-text);
+  color: var(--color-text);
+}
+
+.btn-ghost:hover {
+  background: var(--color-text);
+  color: var(--color-bg);
+}
+
+/* Animation keyframes */
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  :root {
+    --step-max-width: 90vw;
+  }
+
+  .scrolly-text {
+    padding-left: var(--space-3);
+    padding-right: var(--space-3);
+  }
+
+  .step {
+    padding: var(--space-4);
+    margin-bottom: 60vh;
+  }
+}

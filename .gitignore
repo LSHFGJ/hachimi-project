@@ -1,0 +1,40 @@
+node_modules
+
+# Output
+.output
+.vercel
+.netlify
+.wrangler
+/.svelte-kit
+/build
+dist
+docs
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*
+!.env.example
+!.env.test
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# Agent/IDE
+.agent
+
+# Logs
+*.log
+npm-debug.log*
+
+# Scripts
+scripts
+src/scripts
+
+# Assets
+src/lib/assets
+

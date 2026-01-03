@@ -1,0 +1,149 @@
+{
+    "nodes": [
+        {
+            "id": "hachimi",
+            "label": "哈基米",
+            "count": 15000,
+            "x": 0,
+            "y": 0,
+            "isCenter": true
+        },
+        {
+            "id": "cat",
+            "label": "猫咪",
+            "count": 10650,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "id": "uma",
+            "label": "赛马娘",
+            "count": 3200,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "id": "hakimi",
+            "label": "阿什拉夫·哈基米",
+            "count": 1800,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "id": "kichiku",
+            "label": "鬼畜",
+            "count": 1500,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "id": "music",
+            "label": "音乐",
+            "count": 2100,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "id": "food",
+            "label": "美食",
+            "count": 950,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "id": "life",
+            "label": "生活记录",
+            "count": 1200,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "id": "meme",
+            "label": "热梗",
+            "count": 2500,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "id": "pet",
+            "label": "萌宠",
+            "count": 4200,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "id": "football",
+            "label": "足球",
+            "count": 1600,
+            "x": 0,
+            "y": 0
+        }
+    ],
+    "links": [
+        {
+            "source": "hachimi",
+            "target": "cat",
+            "weight": 0.85
+        },
+        {
+            "source": "hachimi",
+            "target": "uma",
+            "weight": 0.45
+        },
+        {
+            "source": "hachimi",
+            "target": "hakimi",
+            "weight": 0.25
+        },
+        {
+            "source": "hachimi",
+            "target": "kichiku",
+            "weight": 0.35
+        },
+        {
+            "source": "hachimi",
+            "target": "music",
+            "weight": 0.55
+        },
+        {
+            "source": "hachimi",
+            "target": "food",
+            "weight": 0.15
+        },
+        {
+            "source": "hachimi",
+            "target": "life",
+            "weight": 0.28
+        },
+        {
+            "source": "hachimi",
+            "target": "meme",
+            "weight": 0.60
+        },
+        {
+            "source": "hachimi",
+            "target": "pet",
+            "weight": 0.72
+        },
+        {
+            "source": "hachimi",
+            "target": "football",
+            "weight": 0.22
+        },
+        {
+            "source": "cat",
+            "target": "pet",
+            "weight": 0.80
+        },
+        {
+            "source": "hakimi",
+            "target": "football",
+            "weight": 0.90
+        },
+        {
+            "source": "uma",
+            "target": "music",
+            "weight": 0.40
+        }
+    ]
+}
