@@ -1011,7 +1011,7 @@
     /* Scroll Hint */
     .scroll-hint {
         position: absolute;
-        bottom: 10%;
+        bottom: 2%;
         left: 0;
         right: 0;
         margin: 0 auto;
@@ -1019,7 +1019,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 8px;
         z-index: 10;
         opacity: 0;
         animation: fadeIn 0.6s ease-out forwards;
