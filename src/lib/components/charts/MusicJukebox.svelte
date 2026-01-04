@@ -1045,6 +1045,7 @@
         border: 1px solid rgba(212, 165, 116, 0.3);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         transform: translate(12px, 12px); /* Offset from cursor */
+        -webkit-backdrop-filter: blur(4px);
         backdrop-filter: blur(4px);
         white-space: nowrap;
         transition: opacity 0.1s ease;
@@ -1110,6 +1111,7 @@
             inset 0 1px 0 rgba(255, 255, 255, 0.08);
         z-index: 2000;
         animation: hintFadeIn 0.4s ease-out forwards;
+        -webkit-backdrop-filter: blur(8px);
         backdrop-filter: blur(8px);
     }
 

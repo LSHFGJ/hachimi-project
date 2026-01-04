@@ -1541,6 +1541,7 @@
             0 10px 30px rgba(0, 0, 0, 0.08),
             0 4px 6px rgba(0, 0, 0, 0.04);
         border: 1px solid rgba(0, 0, 0, 0.05);
+        -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
     }
 

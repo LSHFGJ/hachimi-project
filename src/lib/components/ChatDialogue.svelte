@@ -173,6 +173,7 @@
         max-width: 90%;
         text-align: center;
         padding: 15px 25px;
+        -webkit-backdrop-filter: blur(5px);
         backdrop-filter: blur(5px);
         border: 1px solid rgba(0, 0, 0, 0.05);
     }

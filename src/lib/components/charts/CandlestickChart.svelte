@@ -447,6 +447,7 @@
         position: absolute;
         transform: translate(-50%, -100%);
         background: rgba(40, 40, 40, 0.95);
+        -webkit-backdrop-filter: blur(4px);
         backdrop-filter: blur(4px);
         padding: 10px 14px;
         border-radius: 8px;
