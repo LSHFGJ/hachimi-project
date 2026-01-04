@@ -446,23 +446,23 @@
                         </p>
                     </div>
                 </div>
-            </div>
 
-            <!-- Magazine logo -->
-            <a
-                href="https://mp.weixin.qq.com/s/jA9MQlmZ1ZB8oTW7meVTGQ"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="magazine-logo-wrapper animate-fade-in"
-                style="--delay: 0.4s"
-            >
-                <span class="from-text">释义参考</span>
-                <img
-                    src={lifeWeekLogo}
-                    alt="生活周刊"
-                    class="magazine-logo-img"
-                />
-            </a>
+                <!-- Magazine logo - positioned below the sticky note -->
+                <a
+                    href="https://mp.weixin.qq.com/s/jA9MQlmZ1ZB8oTW7meVTGQ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="magazine-logo-wrapper animate-fade-in"
+                    style="--delay: 0.4s"
+                >
+                    <span class="from-text">释义参考</span>
+                    <img
+                        src={lifeWeekLogo}
+                        alt="生活周刊"
+                        class="magazine-logo-img"
+                    />
+                </a>
+            </div>
         </div>
 
         <!-- Scroll Hint -->
@@ -808,20 +808,21 @@
 
     /* Dictionary-style Sticky Note */
     .sticky-note {
-        position: relative;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         background: linear-gradient(180deg, #fffef5 0%, #f8f6eb 100%);
         border: 1px solid #d4d0c0;
         padding: 28px 32px;
-        margin: 0 auto var(--space-6);
         width: 380px;
         box-shadow:
             4px 6px 16px rgba(0, 0, 0, 0.15),
             inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-        transform: rotate(-1deg);
-        align-self: center;
         opacity: 0;
-        animation: fadeIn 0.6s ease-out forwards;
+        animation: fadeInNote 0.6s ease-out forwards;
         animation-delay: var(--delay, 0s);
+        z-index: 10;
     }
 
     .note-content {
@@ -940,14 +941,19 @@
 
     /* Magazine Logo */
     .magazine-logo-wrapper {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        margin-top: var(--space-4);
         display: flex;
         align-items: center;
         gap: var(--space-3);
-        align-self: center;
         text-decoration: none;
         opacity: 0;
         animation: fadeIn 0.6s ease-out forwards;
         animation-delay: var(--delay, 0s);
+        white-space: nowrap;
     }
 
     .from-text {
@@ -1648,6 +1654,18 @@
         50% {
             opacity: 0.5;
             transform: translateY(6px);
+        }
+    }
+
+    /* Custom fade-in animation for sticky note that preserves centering transform */
+    @keyframes fadeInNote {
+        from {
+            opacity: 0;
+            transform: translate(-50%, -50%) translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%, -50%) translateY(0);
         }
     }
 </style>
